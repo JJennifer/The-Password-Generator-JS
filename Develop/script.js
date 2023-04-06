@@ -13,32 +13,10 @@ var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
 // Write password to the #password input
-function writePassword() {
-   var metCritera = popUpAlert();
-   
-
-   if(metCritera) {
-   var password = generatePassword();
-   var passwordText = document.querySelector("#password");
-
-   passwordText.value = password;
-   }
-}
-
-function generatePassword() {
-  console.log("This button works")
-  var randomPassword = "";
-  for(var i=0; i< passwordLength;i++) {
-    var randomCharacters = Math.floor(Math.random()* options.length);
-    randomPassword = randomPassword + options[randomCharacters];
-  }
-  return randomPassword;
-}
-
 function popUpAlert(){
-  options = []
+  var number = 0
+  
   passwordLength= parseInt(prompt("What would you like your password length to be? 8-128 characters"));
 
    if(isNaN(passwordLength)|| passwordLength<8 || passwordLength >128){
@@ -47,15 +25,47 @@ function popUpAlert(){
    }
    if (confirm("Would you like your password to contain lowercase letter?")){
     options = options.concat(lowercase);
-   }
+    number++
+   } 
    if (confirm("Would you like your password to contain uppercase letter?")){
     options = options.concat(uppercase);
-   }
+    number++
+   } 
    if (confirm("Would you like your password to contain numbers letter?")){
     options = options.concat(numbers);
-   }
+    number++
+   } 
    if (confirm("Would you like your password to contain special characters letter?")){
     options = options.concat(characters);
+    number++
+   } 
+   if (number==0){
+     return false;   
    }
-   return true;
+   
+  return true;
+}
+
+function generatePassword() {
+ console.log("This button works")
+ var randomPassword = "";
+ for(var i=0; i< passwordLength;i++) {
+   var randomCharacters = Math.floor(Math.random()* options.length);
+   randomPassword = randomPassword + options[randomCharacters];
+ }
+ return randomPassword;
+}
+
+function writePassword() {
+  var metCritera = popUpAlert();
+  
+  if(metCritera) {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+  console.log(passwordText.value);
+  } else {
+   alert("Click button again")
+  }
 }

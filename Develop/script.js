@@ -10,15 +10,15 @@ var characters= ["?","#","@","$","%","!","&","^","*",".","+","/",];
 
 var generateBtn = document.querySelector("#generate");
 
-// Add event listener to generate button
+//this makes the red button that says generate password start the function in line 60 which will begin by calling on line 17 by clicking it
 generateBtn.addEventListener("click", writePassword);
 
-// Write password to the #password input
+
 function popUpAlert(){
   var number = 0
   
   passwordLength= parseInt(prompt("What would you like your password length to be? 8-128 characters"));
-
+// If the user does not input a number(in integer format) between 8-128 it will not let them continue to the rest of the ifs and it will return false for function on line 60 after the alert
    if(isNaN(passwordLength)|| passwordLength<8 || passwordLength >128){
      alert("Password length is not met. It needs to be between 8 to 128 charaters");
      return false;
@@ -39,7 +39,9 @@ function popUpAlert(){
     options = options.concat(characters);
     number++
    } 
-   if (number==0){
+//this will count the number of answers true above and if all where clicked false then it will return false for function on line 60 since var number will remain zero
+// this is to force the user to atleast pick 1 character
+   if (number==0){ 
      return false;   
    }
    

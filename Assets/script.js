@@ -15,8 +15,7 @@ generateBtn.addEventListener("click", writePassword);
 
 
 function popUpAlert(){
-  var number = 0
-  
+  var number 
   passwordLength= parseInt(prompt("What would you like your password length to be? 8-128 characters"));
 // If the user does not input a number(in integer format) between 8-128 it will not let them continue to the rest of the ifs and it will return false for function on line 60 after the alert
    if(isNaN(passwordLength)|| passwordLength<8 || passwordLength >128){

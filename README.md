@@ -36,8 +36,8 @@ THEN the password is either displayed in an alert or written to the page
 
 The following image shows the web application's appearance:
 
-![The Password Generator application displays a red button to "Generate Password".]()
+![The Password Generator application displays a red button to "Generate Password".](./Assets/Images/jjennifer.github.io_The-Password-Generator-JS_.png)
 
 ## Deploy Application
 
-
+[Jennifer's Password Generator](https://jjennifer.github.io/The-Password-Generator-JS/)
